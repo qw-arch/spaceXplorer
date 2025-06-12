@@ -150,10 +150,10 @@
     <button class="panel-button" onclick="show('rocketlab')">Rocket Lab</button>
     <button class="panel-button" onclick="show('virgingalactic')">Virgin Galactic</button>
 
-    <div class="category">🪐 Exploration</div>
+    <div class="category">🌌 Exploration</div>
     <button class="panel-button" onclick="show('moon')">Moon</button>
     <button class="panel-button" onclick="show('mars')">Mars</button>
-    <button class="panel-button" onclick="show('solar')">Solar System</button>
+    <button class="panel-button" onclick="show('solarsystem')">Solar System</button>
     <button class="panel-button" onclick="show('exoplanets')">Exoplanets</button>
     <button class="panel-button" onclick="show('astronauts')">Astronauts</button>
     <button class="panel-button" onclick="show('deepspace')">Deep Space</button>
@@ -167,61 +167,72 @@
     <button class="panel-button" onclick="show('spacelaw')">Space Law</button>
   </div>
 
-  <!-- Default content shown first -->
-  <div id="home" class="content-section show">
-    <h2>🌌 Welcome to SpaceXplorer</h2>
-    <p>Select a topic from the menu to explore space agencies, companies, missions, and science.</p>
-  </div>
-
-  <!-- Example content sections -->
+  <!-- Sample content sections -->
   <div id="nasa" class="content-section">
     <h2>🛰 NASA</h2>
-    <p>NASA is the US government’s space agency leading missions to explore the universe.</p>
-    <img src="https://images-assets.nasa.gov/image/PIA23764/PIA23764~orig.jpg" alt="NASA">
+    <p>The United States’ space agency responsible for Apollo missions, Mars rovers, and the James Webb Space Telescope.</p>
+    <img src="https://images-assets.nasa.gov/image/PIA23764/PIA23764~orig.jpg" alt="NASA Mars Rover">
   </div>
+
   <div id="isro" class="content-section">
     <h2>🇮🇳 ISRO</h2>
-    <p>ISRO is India's space agency, known for cost-effective missions like Mangalyaan and Chandrayaan.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/PSLV-C11_launch.jpg" alt="ISRO">
+    <p>India’s space agency known for Mangalyaan, Chandrayaan, and the upcoming Gaganyaan mission.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/PSLV-C11_launch.jpg" alt="ISRO PSLV">
   </div>
-  <!-- Add the remaining sections (as before)... -->
+
+  <div id="spacex" class="content-section">
+    <h2>🚀 SpaceX</h2>
+    <p>Founded by Elon Musk, developed Falcon 9, Starship, Starlink, and more.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/CRS-20_Launch_%28NHQ202003060005%29.jpg" alt="Falcon 9">
+  </div>
+
+  <div id="moon" class="content-section">
+    <h2>🌕 Moon</h2>
+    <p>Earth’s only natural satellite, visited during Apollo and targeted by Artemis and Chandrayaan missions.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg" alt="Moon">
+  </div>
+
+  <div id="mars" class="content-section">
+    <h2>🔴 Mars</h2>
+    <p>The red planet, home to Perseverance and Curiosity rovers, a future human destination.</p>
+    <img src="https://mars.nasa.gov/system/news_items/main_images/9216_PIA25520-MarsPerseveranceRover-Selfie-3200.jpg" alt="Mars Rover">
+  </div>
+
+  <div id="solarsystem" class="content-section">
+    <h2>🌞 Solar System</h2>
+    <p>Includes the Sun, planets, moons, asteroids, and comets. The foundation of our cosmic neighborhood.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys.jpg" alt="Solar System">
+  </div>
+
+  <!-- Add more sections below as needed -->
 
   <script>
     function show(id) {
-      // Hide all sections
       document.querySelectorAll('.content-section').forEach(section => {
         section.classList.remove('show');
       });
-      // Show selected
       const el = document.getElementById(id);
       if (el) {
         el.classList.add('show');
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById('sidePanel').style.left = '-260px';
+        el.scrollIntoView({ behavior: 'smooth' });
       }
-      // Close panel after selection
-      document.getElementById('sidePanel').style.left = "-260px";
     }
 
     const sidePanel = document.getElementById('sidePanel');
-    const menuButton = document.getElementById('menuButton');
-    const closeButton = document.getElementById('closeButton');
+    document.getElementById('menuButton').onclick = () => {
+      sidePanel.style.left = '0';
+    };
+    document.getElementById('closeButton').onclick = () => {
+      sidePanel.style.left = '-260px';
+    };
 
-    menuButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      sidePanel.style.left = "0";
-    });
-
-    closeButton.addEventListener('click', () => {
-      sidePanel.style.left = "-260px";
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!sidePanel.contains(e.target) && !menuButton.contains(e.target)) {
-        sidePanel.style.left = "-260px";
+    // Close panel on outside click
+    document.addEventListener('click', function (e) {
+      if (!sidePanel.contains(e.target) && !document.getElementById('menuButton').contains(e.target)) {
+        sidePanel.style.left = '-260px';
       }
     });
-
-    sidePanel.addEventListener('click', (e) => e.stopPropagation());
   </script>
 </body>
 </html>
