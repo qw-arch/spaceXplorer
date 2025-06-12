@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SpaceXplorer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>SpaceXplorer - All Styles</title>
   <style>
     :root {
-      --bg-dark: #0b0c10;
-      --panel-bg: #1f2833;
-      --text-light: #c5c6c7;
+      --bg: #0b0c10;
+      --text: #c5c6c7;
       --accent: #66fcf1;
-      --accent-hover: #45a29e;
-      --card-bg: #202833;
+      --card-bg: #1f2833;
     }
-    * {
-      box-sizing: border-box;
-    }
+
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
+
     .header {
       background: #101820;
       padding: 20px;
@@ -31,268 +28,162 @@
       align-items: center;
       border-bottom: 2px solid var(--accent);
     }
+
     .header h1 {
-      font-family: 'Orbitron', sans-serif;
-      margin: 0;
       font-size: 28px;
-      color: var(--accent);
-    }
-    .header h2 {
       margin: 0;
-      font-size: 14px;
-      color: var(--text-light);
+      color: var(--accent);
     }
-    .button {
-      background: var(--accent);
-      color: #0b0c10;
-      padding: 10px 20px;
-      border: none;
+
+    .style-select {
+      background: #1f2833;
+      color: var(--text);
+      border: 1px solid var(--accent);
+      padding: 6px 10px;
       border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .button:hover {
-      background: var(--accent-hover);
-    }
-    #sidePanel {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 260px;
-      height: 100%;
-      background: var(--panel-bg);
-      overflow-y: auto;
-      padding: 20px;
-      transition: left 0.3s;
-      z-index: 1000;
-    }
-    .close-btn {
-      background: red;
-      color: white;
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: none;
       font-size: 16px;
-      cursor: pointer;
     }
-    .category {
-      font-weight: bold;
-      color: var(--accent);
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-    .panel-button {
-      background: #2c3e50;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      margin-bottom: 8px;
-      text-align: left;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .panel-button:hover {
-      background: var(--accent-hover);
-    }
-    .content-section {
-      display: none;
-      background: var(--card-bg);
-      padding: 20px;
+
+    .section {
       margin: 20px;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
-      animation: fadeIn 0.5s ease-in-out;
+      transition: all 0.3s ease;
     }
-    .content-section.show {
-      display: block;
+
+    /* Card Style */
+    .style-card .section {
+      background: var(--card-bg);
+      box-shadow: 0 4px 8px rgba(102, 252, 241, 0.1);
     }
-    .content-section h2 {
+
+    /* Glow Style */
+    .style-glow .section {
+      background: #0b0c10;
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* Starry Background */
+    .style-starry {
+      background: url('https://images.unsplash.com/photo-1473929541591-3fdfb86f6756?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+    }
+
+    /* Clean Style */
+    .style-clean {
+      background: #f5f5f5;
+      color: #000000;
+    }
+
+    .style-clean .section {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ccc;
+    }
+
+    h2 {
       color: var(--accent);
-      font-family: 'Orbitron', sans-serif;
+      margin-top: 0;
     }
-    .content-section img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .style-clean h2 {
+      color: #333;
     }
   </style>
 </head>
-<body>
+<body class="style-card" id="page">
+
   <div class="header">
-    <div>
-      <h1>SpaceXplorer</h1>
-      <h2>Explore the Universe</h2>
-    </div>
-    <button id="menuButton" class="button">☰ Menu</button>
+    <h1>SpaceXplorer</h1>
+    <select id="styleMode" class="style-select">
+      <option value="style-card">📦 Card</option>
+      <option value="style-glow">✨ Glow</option>
+      <option value="style-starry">🌌 Starry</option>
+      <option value="style-clean">🧼 Clean</option>
+    </select>
   </div>
 
-  <div id="sidePanel">
-    <button id="closeButton" class="close-btn">✖ Close</button>
-
-    <div class="category">🌐 Agencies</div>
-    <button class="panel-button" onclick="show('nasa')">NASA</button>
-    <button class="panel-button" onclick="show('isro')">ISRO</button>
-    <button class="panel-button" onclick="show('esa')">ESA</button>
-    <button class="panel-button" onclick="show('jaxa')">JAXA</button>
-    <button class="panel-button" onclick="show('cnsa')">CNSA</button>
-    <button class="panel-button" onclick="show('roscosmos')">Roscosmos</button>
-
-    <div class="category">🚀 Companies</div>
-    <button class="panel-button" onclick="show('spacex')">SpaceX</button>
-    <button class="panel-button" onclick="show('blueorigin')">Blue Origin</button>
-    <button class="panel-button" onclick="show('rocketlab')">Rocket Lab</button>
-    <button class="panel-button" onclick="show('virgingalactic')">Virgin Galactic</button>
-
-    <div class="category">🌌 Exploration</div>
-    <button class="panel-button" onclick="show('moon')">Moon</button>
-    <button class="panel-button" onclick="show('mars')">Mars</button>
-    <button class="panel-button" onclick="show('solarsystem')">Solar System</button>
-    <button class="panel-button" onclick="show('exoplanets')">Exoplanets</button>
-    <button class="panel-button" onclick="show('astronauts')">Astronauts</button>
-    <button class="panel-button" onclick="show('deepspace')">Deep Space</button>
-
-    <div class="category">🔬 Science & Tech</div>
-    <button class="panel-button" onclick="show('satellites')">Satellites</button>
-    <button class="panel-button" onclick="show('telescopes')">Telescopes</button>
-    <button class="panel-button" onclick="show('astrobiology')">Astrobiology</button>
-    <button class="panel-button" onclick="show('ai')">AI</button>
-    <button class="panel-button" onclick="show('rockets')">Rockets</button>
-    <button class="panel-button" onclick="show('spacelaw')">Space Law</button>
-  </div>
-
-  <!-- Sample content sections -->
-  <div id="nasa" class="content-section">
+  <div class="section">
     <h2>🛰 NASA</h2>
-    <p>The United States’ space agency responsible for Apollo missions, Mars rovers, and the James Webb Space Telescope.</p>
-    <img src="https://images-assets.nasa.gov/image/PIA23764/PIA23764~orig.jpg" alt="NASA Mars Rover">
+    <p>NASA is the United States' space agency responsible for civil space programs, Moon missions, Mars rovers, and telescopes like Hubble and JWST.</p>
   </div>
 
-  <div id="isro" class="content-section">
+  <div class="section">
     <h2>🇮🇳 ISRO</h2>
-    <p>India’s space agency known for Mangalyaan, Chandrayaan, and the upcoming Gaganyaan mission.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/PSLV-C11_launch.jpg" alt="ISRO PSLV">
+    <p>ISRO is India's national space agency, known for cost-effective missions like Mangalyaan (Mars Orbiter), Chandrayaan (Moon), and Gaganyaan (human spaceflight).</p>
   </div>
 
-  <div id="spacex" class="content-section">
-    <h2>🚀 SpaceX</h2>
-    <p>Founded by Elon Musk, developed Falcon 9, Starship, Starlink, and more.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/CRS-20_Launch_%28NHQ202003060005%29.jpg" alt="Falcon 9">
+  <div class="section">
+    <h2>🌕 The Moon</h2>
+    <p>The Moon is Earth's only natural satellite. Major missions include Apollo, Chandrayaan, and Artemis, targeting lunar landings and research bases.</p>
   </div>
 
-  <div id="moon" class="content-section">
-    <h2>🌕 Moon</h2>
-    <p>Earth’s only natural satellite, visited during Apollo and targeted by Artemis and Chandrayaan missions.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg" alt="Moon">
-  </div>
-
-  <div id="mars" class="content-section">
+  <div class="section">
     <h2>🔴 Mars</h2>
-    <p>The red planet, home to Perseverance and Curiosity rovers, a future human destination.</p>
-    <img src="https://mars.nasa.gov/system/news_items/main_images/9216_PIA25520-MarsPerseveranceRover-Selfie-3200.jpg" alt="Mars Rover">
+    <p>Mars is the Red Planet, explored by NASA's Perseverance and Curiosity rovers, ESA’s Mars Express, and ISRO’s Mangalyaan orbiter.</p>
   </div>
 
-  <div id="solarsystem" class="content-section">
-    <h2>🌞 Solar System</h2>
-    <p>Includes the Sun, planets, moons, asteroids, and comets. The foundation of our cosmic neighborhood.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys.jpg" alt="Solar System">
+    <div class="section">
+    <h2>🪐 Exoplanets</h2>
+    <p>Planets beyond our solar system. Thousands have been discovered using Kepler and TESS.</p>
   </div>
 
-  <!-- Add more sections below as needed -->
+  <div class="section">
+    <h2>👨‍🚀 Astronauts</h2>
+    <p>Trained explorers who conduct missions aboard spacecraft like the ISS and Artemis Orion.</p>
+  </div>
 
+  <div class="section">
+    <h2>🌌 Deep Space</h2>
+    <p>The vast regions beyond our solar system filled with galaxies, black holes, and cosmic phenomena.</p>
+  </div>
+
+  <div class="section">
+    <h2>🔭 Telescopes</h2>
+    <p>Devices like Hubble and JWST that help us observe distant stars, galaxies, and exoplanets.</p>
+  </div>
+
+  <div class="section">
+    <h2>🛰 Satellites</h2>
+    <p>Orbiting devices used for communication, weather forecasting, GPS, and Earth observation.</p>
+  </div>
+
+  <div class="section">
+    <h2>🧬 Astrobiology</h2>
+    <p>The study of life in the universe, including microbial life on Mars and Europa.</p>
+  </div>
+
+  <div class="section">
+    <h2>🤖 AI</h2>
+    <p>Artificial intelligence powers rover navigation, data analysis, and autonomous systems in space missions.</p>
+  </div>
+
+  <div class="section">
+    <h2>🚀 Rockets</h2>
+    <p>Vehicles like Falcon 9, Saturn V, and Ariane 5 that launch payloads into orbit.</p>
+  </div>
+
+  <div class="section">
+    <h2>⚖️ Space Law</h2>
+    <p>International agreements and regulations that govern activities in outer space.</p>
+  </div>
+
+  <div class="section">
+    <h2>🛸 Virgin Galactic</h2>
+    <p>A private company offering suborbital space tourism using the SpaceShipTwo spaceplane.</p>
+  </div>
+
+  
   <script>
-    function show(id) {
-      document.querySelectorAll('.content-section').forEach(section => {
-        section.classList.remove('show');
-      });
-      const el = document.getElementById(id);
-      if (el) {
-        el.classList.add('show');
-        document.getElementById('sidePanel').style.left = '-260px';
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    const select = document.getElementById("styleMode");
+    const body = document.getElementById("page");
 
-    const sidePanel = document.getElementById('sidePanel');
-    document.getElementById('menuButton').onclick = () => {
-      sidePanel.style.left = '0';
-    };
-    document.getElementById('closeButton').onclick = () => {
-      sidePanel.style.left = '-260px';
-    };
-
-    // Close panel on outside click
-    document.addEventListener('click', function (e) {
-      if (!sidePanel.contains(e.target) && !document.getElementById('menuButton').contains(e.target)) {
-        sidePanel.style.left = '-260px';
-      }
+    select.addEventListener("change", () => {
+      body.className = select.value;
     });
   </script>
-  <div id="exoplanets" class="content-section">
-  <h2>🪐 Exoplanets</h2>
-  <p>Planets that orbit stars outside our solar system. Thousands have been discovered using telescopes like Kepler and TESS.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Exoplanet_Comparison.png" alt="Exoplanets">
-</div>
-
-<div id="astronauts" class="content-section">
-  <h2>👨‍🚀 Astronauts</h2>
-  <p>Trained space travelers who conduct missions aboard spacecraft like the ISS, Artemis Orion, and Soyuz.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/ISS_Spacewalk_-_NASA_Astronaut.jpg" alt="Astronaut">
-</div>
-
-<div id="deepspace" class="content-section">
-  <h2>🌌 Deep Space</h2>
-  <p>Beyond our solar system lies deep space — filled with galaxies, quasars, black holes, and cosmic mysteries.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Hubble_Ultra_Deep_Field_part_d.jpg" alt="Deep Space">
-</div>
-
-<div id="telescopes" class="content-section">
-  <h2>🔭 Telescopes</h2>
-  <p>Instruments that observe distant celestial objects. Famous examples include Hubble, JWST, and ALMA.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/HST-SM4.jpeg" alt="Telescope">
-</div>
-
-<div id="satellites" class="content-section">
-  <h2>🛰 Satellites</h2>
-  <p>Machines in orbit used for communication, Earth observation, weather, science, and navigation (like GPS).</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/NASA_Earth_Observing_Satellite.jpg" alt="Satellite">
-</div>
-
-<div id="astrobiology" class="content-section">
-  <h2>🧬 Astrobiology</h2>
-  <p>The study of life in the universe. Explores conditions for life on other planets and origins of life on Earth.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Microbe_on_Mars_Illustration.jpg" alt="Astrobiology">
-</div>
-
-<div id="ai" class="content-section">
-  <h2>🤖 AI</h2>
-  <p>Artificial Intelligence helps analyze space data, control rovers, and manage autonomous missions in real time.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/AI_robot_arm_data.jpg" alt="AI in Space">
-</div>
-
-<div id="rockets" class="content-section">
-  <h2>🚀 Rockets</h2>
-  <p>Launch vehicles like Saturn V, Falcon 9, and GSLV carry spacecraft into orbit or beyond Earth.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Falcon9-rocket-launch.jpg" alt="Rocket Launch">
-</div>
-
-<div id="spacelaw" class="content-section">
-  <h2>⚖️ Space Law</h2>
-  <p>International laws and treaties that govern outer space activities and ensure peaceful use beyond Earth.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Outer_Space_Treaty_signing_1967.jpg" alt="Space Law">
-</div>
-
-<div id="virgingalactic" class="content-section">
-  <h2>🛸 Virgin Galactic</h2>
-  <p>A private spaceflight company focused on suborbital space tourism using the SpaceShipTwo system.</p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Virgin_Galactic_SpaceShipTwo.jpg" alt="Virgin Galactic">
-</div>
 
 </body>
 </html>
