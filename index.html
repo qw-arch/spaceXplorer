@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,44 +135,36 @@
 
   <div id="sidePanel">
     <button id="closeButton" class="close-btn">✖ Close</button>
+
     <div class="category">🌐 Agencies</div>
     <button class="panel-button" onclick="show('nasa')">NASA</button>
     <button class="panel-button" onclick="show('isro')">ISRO</button>
-    <div class="category">🚀 Companies</div>
+    <button class="panel-button" onclick="show('esa')">ESA</button>
+    <button class="panel-button" onclick="show('jaxa')">JAXA</button>
+    <button class="panel-button" onclick="show('cnsa')">CNSA</button>
+    <button class="panel-button" onclick="show('roscosmos')">Roscosmos</button>
+
+    <div class="category">🚀 Private Companies</div>
     <button class="panel-button" onclick="show('spacex')">SpaceX</button>
-    <div class="category">🌌 Science</div>
-    <button class="panel-button" onclick="show('moon')">The Moon</button>
+    <button class="panel-button" onclick="show('blueorigin')">Blue Origin</button>
+    <button class="panel-button" onclick="show('rocketlab')">Rocket Lab</button>
+    <button class="panel-button" onclick="show('virgin')">Virgin Galactic</button>
+
+    <div class="category">🪐 Exploration</div>
+    <button class="panel-button" onclick="show('moon')">Moon</button>
     <button class="panel-button" onclick="show('mars')">Mars</button>
-  </div>
+    <button class="panel-button" onclick="show('solar')">Solar System</button>
+    <button class="panel-button" onclick="show('exo')">Exoplanets</button>
+    <button class="panel-button" onclick="show('astro')">Astronauts</button>
+    <button class="panel-button" onclick="show('deep')">Deep Space</button>
 
-  <div id="nasa" class="content-section">
-    <h2>🛰 NASA</h2>
-    <p>The United States’ space agency responsible for space exploration, Moon landings, Mars rovers, and telescopes like Hubble and JWST.</p>
-    <img src="https://images-assets.nasa.gov/image/PIA23764/PIA23764~orig.jpg" alt="NASA Mars Rover">
-  </div>
-
-  <div id="isro" class="content-section">
-    <h2>🇮🇳 ISRO</h2>
-    <p>India’s national space agency, known for cost-effective missions like Mangalyaan and Chandrayaan, and its upcoming Gaganyaan crewed mission.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/PSLV-C11_launch.jpg" alt="ISRO PSLV Launch">
-  </div>
-
-  <div id="spacex" class="content-section">
-    <h2>🚀 SpaceX</h2>
-    <p>Founded by Elon Musk, SpaceX developed the Falcon 9, Falcon Heavy, Dragon, Starlink, and Starship—leading commercial space innovation.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/CRS-20_Launch_%28NHQ202003060005%29.jpg" alt="Falcon 9">
-  </div>
-
-  <div id="moon" class="content-section">
-    <h2>🌕 The Moon</h2>
-    <p>Earth's only natural satellite. The Moon was first visited by humans in 1969 and continues to be the target of new missions from NASA, ISRO, and others.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg" alt="The Moon">
-  </div>
-
-  <div id="mars" class="content-section">
-    <h2>🔴 Mars</h2>
-    <p>The Red Planet is home to rovers like Perseverance and Curiosity. It may host future human settlements and is a focus of planetary science.</p>
-    <img src="https://mars.nasa.gov/system/news_items/main_images/9216_PIA25520-MarsPerseveranceRover-Selfie-3200.jpg" alt="Mars Perseverance">
+    <div class="category">🔬 Science & Tech</div>
+    <button class="panel-button" onclick="show('sats')">Satellites</button>
+    <button class="panel-button" onclick="show('telescopes')">Telescopes</button>
+    <button class="panel-button" onclick="show('astrobiology')">Astrobiology</button>
+    <button class="panel-button" onclick="show('ai')">AI in Space</button>
+    <button class="panel-button" onclick="show('rockets')">Rockets</button>
+    <button class="panel-button" onclick="show('law')">Space Law</button>
   </div>
 
   <script>
@@ -181,14 +172,27 @@
       document.querySelectorAll('.content-section').forEach(section => {
         section.classList.remove('show');
       });
-      document.getElementById(id).classList.add('show');
+      const el = document.getElementById(id);
+      if (el) el.classList.add('show');
     }
-    document.getElementById('menuButton').onclick = () => {
-      document.getElementById('sidePanel').style.left = "0";
+
+    const sidePanel = document.getElementById('sidePanel');
+    const menuButton = document.getElementById('menuButton');
+    const closeButton = document.getElementById('closeButton');
+
+    menuButton.onclick = () => {
+      sidePanel.style.left = "0";
     };
-    document.getElementById('closeButton').onclick = () => {
-      document.getElementById('sidePanel').style.left = "-260px";
+    closeButton.onclick = () => {
+      sidePanel.style.left = "-260px";
     };
+
+    // Close panel when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!sidePanel.contains(event.target) && event.target !== menuButton) {
+        sidePanel.style.left = "-260px";
+      }
+    });
   </script>
 </body>
 </html>
