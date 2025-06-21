@@ -101,6 +101,118 @@
     .style-clean h2 {
       color: #333;
     }
+    /* Better scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add hover lift effect to sections */
+.section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(102, 252, 241, 0.15);
+}
+
+/* Quiz button glow */
+#quiz-btn {
+  background: var(--accent);
+  color: #0b0c10;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#quiz-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px var(--accent);
+}
+
+/* Improve dropdown appearance on focus */
+.style-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--accent);
+}
+
+/* Optional responsive tweak for mobile layout */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .style-select {
+    width: 100%;
+  }
+
+  .section {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+    .button {
+      background: var(--accent);
+      color: #0b0c10;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .button:hover {
+      background: #45a29e;
+      transform: scale(1.05);
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .question label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    .question input[type="radio"] {
+      margin-right: 10px;
+    }
+  .content-section {
+      margin: 20px;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  .content-section h2 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+  .content-section p {
+      line-height: 1.6;
+    }
+  .content-section button {
+      background: var(--accent);
+      color: #0b0c10;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .content-section button:hover {
+      background: #45a29e;
+      transform: scale(1.05);
+    } 
   </style>
 </head>
 <body class="style-card" id="page">
@@ -118,7 +230,6 @@
   <div class="section">
     <h2>🛰 NASA</h2>
     <p>NASA is the United States' space agency responsible for civil space programs, Moon missions, Mars rovers, and telescopes like Hubble and JWST.</p>
-  </div>
 
   <div class="section">
     <h2>🇮🇳 ISRO</h2>
@@ -184,9 +295,247 @@
     <h2>🛸 Virgin Galactic</h2>
     <p>A private company offering suborbital space tourism using the SpaceShipTwo spaceplane.</p>
   </div>
+  <div class="section">
+    <h2>🌍 Earth Observation</h2>
+    <p>Satellites and instruments that monitor Earth's climate, weather, and natural resources.</p>
+  </div>
+  <div class="section">
+    <h2>🌠 Asteroids</h2>
+    <p>Small rocky bodies in space, some of which are targets for future mining and exploration missions.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Dark Matter</h2>
+    <p>An invisible substance that makes up about 27% of the universe, influencing galaxy formation and motion.</p>
+  </div>
+  <div class="section">
+    <h2>🌟 Stars</h2>
+    <p>Massive celestial bodies that produce light and heat through nuclear fusion, forming galaxies and clusters.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Black Holes</h2>
+    <p>Regions in space with gravitational pull so strong that nothing, not even light, can escape from them.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Cosmic Microwave Background</h2>
+    <p>The afterglow radiation from the Big Bang, providing insights into the early universe's conditions.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Exploration</h2>
+    <p>The ongoing discovery and exploration of celestial structures in outer space by means of continuously evolving and growing space technology.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Missions</h2>
+    <p>Various missions launched by space agencies to explore planets, moons, and other celestial bodies.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Technology</h2>
+    <p>Innovative technologies developed for space exploration, including propulsion systems, life support, and communication.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Debris</h2>
+    <p>Defunct satellites, spent rocket stages, and other fragments left in orbit around Earth, posing risks to active missions.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Tourism</h2>
+    <p>The emerging industry of commercial space travel, allowing civilians to experience spaceflight.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Colonization</h2>
+    <p>Theoretical concept of establishing human settlements on other planets, such as Mars or the Moon.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Weather</h2>
+    <p>The study of solar and cosmic phenomena that affect space environments, including solar flares and cosmic rays.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Science</h2>
+    <p>The scientific study of outer space, including astronomy, astrophysics, and planetary science.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Robotics</h2>
+    <p>Robotic systems designed for space exploration, including rovers, landers, and robotic arms on spacecraft.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Communication</h2>
+    <p>Technologies and methods used to transmit data between Earth and spacecraft, including radio waves and lasers.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Education</h2>
+    <p>Programs and initiatives aimed at educating the public about space science, exploration, and technology.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Art</h2>
+    <p>Art inspired by space, including paintings, photography, and digital art that captures the beauty of the cosmos.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space History</h2>
+    <p>The history of human exploration of space, including key missions, milestones, and achievements in spaceflight.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Challenges</h2>
+    <p>The various challenges faced in space exploration, including radiation exposure, microgravity effects, and long-duration missions.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Future</h2>
+    <p>The future of space exploration, including plans for Mars colonization, asteroid mining, and interstellar travel.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Innovations</h2>
+    <p>Recent advancements in space technology, including reusable rockets, advanced propulsion systems, and AI in space missions.</p>
+  </div>
+  <div class="section">
+    <h2>🌌 Space Collaborations</h2>
+    <p>International partnerships in space exploration, such as the International Space Station (ISS) and joint missions to Mars.</p>
+  </div>
 
-  
+
+  <button id="quiz-btn" onclick="startquiz()">quiz</button>
+  <div id="quiz" class="content-section"></div>
   <script>
+  function startquiz() {
+    document.getElementById("quiz").innerHTML = `
+      <h2>🧪 Space Quiz</h2>
+      <div class="question">
+        <h3>1. Which planet is known as the Red Planet?</h3>
+        <label><input type="radio" name="q1" value="Venus" /> a) Venus</label>
+        <label><input type="radio" name="q1" value="Mars" /> b) Mars</label>
+        <label><input type="radio" name="q1" value="Jupiter" /> c) Jupiter</label>
+        <label><input type="radio" name="q1" value="Mercury" /> d) Mercury</label>
+      </div>
+      <div class="question">
+        <h3>2. How many moons does Earth have?</h3>
+        <label><input type="radio" name="q2" value="1" /> a) 1</label>
+        <label><input type="radio" name="q2" value="2" /> b) 2</label>
+        <label><input type="radio" name="q2" value="3" /> c) 3</label>
+        <label><input type="radio" name="q2" value="4" /> d) 4</label>
+      </div>
+      <div class="question">
+        <h3>3. What do we call the explosion of a dying star?</h3>
+        <label><input type="radio" name="q3" value="Nova" /> a) Nova</label>
+        <label><input type="radio" name="q3" value="Supernova" /> b) Supernova</label>
+        <label><input type="radio" name="q3" value="Nebula" /> c) Nebula</label>
+        <label><input type="radio" name="q3" value="Eclipse" /> d) Eclipse</label>
+      </div>
+      <div class="question">
+        <h3>4. What is the largest planet in our solar system?</h3>
+        <label><input type="radio" name="q4" value="Earth" /> a) Earth</label>
+        <label><input type="radio" name="q4" value="Saturn" /> b) Saturn</label>
+        <label><input type="radio" name="q4" value="Jupiter" /> c) Jupiter</label>
+        <label><input type="radio" name="q4" value="Neptune" /> d) Neptune</label>
+      </div>
+      <div class="question">
+        <h3>5. Which company is known for its reusable rockets?</h3>
+        <label><input type="radio" name="q5" value="SpaceX" /> a) SpaceX</label>
+        <label><input type="radio" name="q5" value="Blue Origin" /> b) Blue Origin</label>
+        <label><input type="radio" name="q5" value="Virgin Galactic" /> c) Virgin Galactic</label>
+        <label><input type="radio" name="q5" value="Boeing" /> d) Boeing</label>
+      </div>
+      <div class="question">
+        <h3>6. What is the name of the first artificial satellite launched into space?</h3>
+        <label><input type="radio" name="q6" value="Apollo 11" /> a) Apollo 11</label>
+        <label><input type="radio" name="q6" value="Sputnik 1" /> b) Sputnik 1</label>
+        <label><input type="radio" name="q6" value="Voyager 1" /> c) Voyager 1</label>
+        <label><input type="radio" name="q6" value="Hubble Space Telescope" /> d) Hubble Space Telescope</label>
+      </div>
+      <div class="question">
+        <h3>7. What is the primary gas in the atmosphere of Venus?</h3>
+        <label><input type="radio" name="q7" value="Oxygen" /> a) Oxygen</label>
+        <label><input type="radio" name="q7" value="Carbon Dioxide" /> b) Carbon Dioxide</label>
+        <label><input type="radio" name="q7" value="Nitrogen" /> c) Nitrogen</label>
+        <label><input type="radio" name="q7" value="Hydrogen" /> d) Hydrogen</label>
+      </div>
+      <div class="question">
+        <h3>8. What is the name of the largest volcano in the solar system?</h3>
+        <label><input type="radio" name="q8" value="Mount Everest" /> a) Mount Everest</label>
+        <label><input type="radio" name="q8" value="Olympus Mons" /> b) Olympus Mons</label>
+        <label><input type="radio" name="q8" value="Mauna Kea" /> c) Mauna Kea</label>
+        <label><input type="radio" name="q8" value="Kilimanjaro" /> d) Kilimanjaro</label>
+      </div>
+      <div class="question">
+        <h3>9. What is the name of the first human to travel into space?</h3>
+        <label><input type="radio" name="q9" value="Yuri Gagarin" /> a) Yuri Gagarin</label>
+        <label><input type="radio" name="q9" value="Neil Armstrong" /> b) Neil Armstrong</label>
+        <label><input type="radio" name="q9" value="Buzz Aldrin" /> c) Buzz Aldrin</label>
+        <label><input type="radio" name="q9" value="John Glenn" /> d) John Glenn</label>
+      </div>
+      <div class="question">
+        <h3>10. What is the name of the plant that we live on?</h3>
+        <label><input type="radio" name="q10" value="Earth" /> a) Earth</label>
+        <label><input type="radio" name="q10" value="Mars" /> b) Mars</label>
+        <label><input type="radio" name="q10" value="Venus" /> c) Venus</label>
+        <label><input type="radio" name="q10" value="Jupiter" /> d) Jupiter</label>
+      </div>
+      <div class="question">
+        <h3>11. What is the name of the first spacecraft to land on Mars?</h3>
+        <label><input type="radio" name="q11" value="Viking 1" /> a) Viking 1</label>
+        <label><input type="radio" name="q11" value="Mars Pathfinder" /> b) Mars Pathfinder</label>
+        <label><input type="radio" name="q11" value="Curiosity" /> c) Curiosity</label>
+        <label><input type="radio" name="q11" value="Perseverance" /> d) Perseverance</label>
+      </div>
+      <div class="question">
+        <h3>12. What is the name of the first spacecraft to orbit Jupiter?</h3>
+        <label><input type="radio" name="q12" value="Voyager 1" /> a) Voyager 1</label>
+        <label><input type="radio" name="q12" value="Galileo" /> b) Galileo</label>
+        <label><input type="radio" name="q12" value="Juno" /> c) Juno</label>
+        <label><input type="radio" name="q12" value="Pioneer 10" /> d) Pioneer 10</label>
+      </div>
+      <div class="question">
+        <h3>13. What is the name of the first spacecraft to land on the Moon?</h3>
+        <label><input type="radio" name="q13" value="Apollo 11" /> a) Apollo 11</label>
+        <label><input type="radio" name="q13" value="Luna 2" /> b) Luna 2</label>
+        <label><input type="radio" name="q13" value="Surveyor 1" /> c) Surveyor 1</label>
+        <label><input type="radio" name="q13" value="Chang'e 3" /> d) Chang'e 3</label>
+      </div>
+      <div class="question">
+        <h3>14. What is the name of the first spacecraft to orbit Saturn?</h3>
+        <label><input type="radio" name="q14" value="Voyager 1" /> a) Voyager 1</label>
+        <label><input type="radio" name="q14" value="Pioneer 11" /> b) Pioneer 11</label>
+        <label><input type="radio" name="q14" value="Cassini" /> c) Cassini</label>
+        <label><input type="radio" name="q14" value="Huygens" /> d) Huygens</label>
+      </div>
+      <div class="question">
+        <h3>15. What is the name of the first spacecraft to orbit Mercury?</h3>
+        <label><input type="radio" name="q15" value="Mariner 10" /> a) Mariner 10</label>
+        <label><input type="radio" name="q15" value="MESSENGER" /> b) MESSENGER</label>
+        <label><input type="radio" name="q15" value="BepiColombo" /> c) BepiColombo</label>
+        <label><input type="radio" name="q15" value="Pioneer 10" /> d) Pioneer 10</label>
+      </div>
+
+      <div>
+      <button class="button" onclick="checkAnswers()">Submit Answers</button>
+      <div id="result"></div>
+    `;
+  }
+    function checkAnswers() {
+    const answers = {
+      q1: "Mars",
+      q2: "1",
+      q3: "Supernova",
+      q4: "Jupiter",
+      q5: "SpaceX",
+      q6: "Sputnik 1",
+      q7: "Carbon Dioxide",
+      q8: "Olympus Mons",
+      q9: "Yuri Gagarin",
+      q10: "Earth",
+      q11: "Viking 1",
+      q12: "Galileo",
+      q13: "Apollo 11",
+      q14: "Cassini",
+      q15: "MESSENGER"
+    };
+
+    let score = 0;
+    for (let q in answers) {
+      const options = document.getElementsByName(q);
+      for (let option of options) {
+        if (option.checked && option.value === answers[q]) {
+          score++;
+        }
+      }
+    }
+    document.getElementById("result").textContent = "Your score is: " + score + "/15";
+  }
     const select = document.getElementById("styleMode");
     const body = document.getElementById("page");
 
